@@ -4,7 +4,7 @@ import {
 	TCalenderContextKeys,
 	TCalenderState,
 } from './CalenderContext';
-import { TMeetingData } from '../components/CalendarWrap';
+import { TMeetingData } from '../../components/CalendarWrap';
 
 type TCalenderProviderProps = {
 	children: ReactNode;

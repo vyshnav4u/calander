@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { useCalenderContext } from '../context/useCalenderContext';
+import { useCalenderContext } from '../context/CalanderContext/useCalenderContext';
 import { CELL_HEIGHT, DEFAULT_COLORS, FIRST_COLUMN_WIDTH } from './Calendar';
 import { generateNextHours } from './Helper';
 

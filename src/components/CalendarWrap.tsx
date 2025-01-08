@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import CalenderProvider from '../context/CalenderProvider';
+import CalenderProvider from '../context/CalanderContext/CalenderProvider';
 import Calendar from './Calendar';
 import meetingDataJson from '../data/calanderFromToEndDate.json';
 

@@ -1,4 +1,4 @@
-import { useCalenderContext } from '../context/useCalenderContext';
+import { useCalenderContext } from '../context/CalanderContext/useCalenderContext';
 import MonthView from './calendar-view/MonthView';
 import WeekView from './calendar-view/WeekView';
 

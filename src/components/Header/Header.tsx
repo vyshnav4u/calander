@@ -4,7 +4,8 @@ import {
 	faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import ViewSwitcher from '../ViewSwitcher';
-import { useCalenderContext } from '../../context/useCalenderContext';
+import { useCalenderContext } from '../../context/CalanderContext/useCalenderContext';
+import { getViewModeMeta } from '../Helper';
 
 const MONTH_NAMES = [
 	'January',
@@ -24,39 +25,41 @@ const MONTH_NAMES = [
 const Header = () => {
 	const { state, updateCalender } = useCalenderContext();
 	const { currentDate, viewMode } = state;
+	const { isMonthView, isWeekView } = getViewModeMeta(viewMode);
+	const dayOffset = isWeekView ? 7 : 1;
 
 	const handlePrevMonth = () => {
-		if (viewMode === 'day') {
+		if (isMonthView) {
+			updateCalender(
+				'currentDate',
+				new Date(currentDate.getFullYear(), currentDate.getMonth() - 1)
+			);
+		} else {
 			updateCalender(
 				'currentDate',
 				new Date(
 					currentDate.getFullYear(),
 					currentDate.getMonth(),
-					currentDate.getDate() - 7
+					currentDate.getDate() - dayOffset
 				)
-			);
-		} else {
-			updateCalender(
-				'currentDate',
-				new Date(currentDate.getFullYear(), currentDate.getMonth() - 1)
 			);
 		}
 	};
 
 	const handleNext = () => {
-		if (viewMode === 'day') {
+		if (isMonthView) {
+			updateCalender(
+				'currentDate',
+				new Date(currentDate.getFullYear(), currentDate.getMonth() + 1)
+			);
+		} else {
 			updateCalender(
 				'currentDate',
 				new Date(
 					currentDate.getFullYear(),
 					currentDate.getMonth(),
-					currentDate.getDate() + 7
+					currentDate.getDate() + dayOffset
 				)
-			);
-		} else {
-			updateCalender(
-				'currentDate',
-				new Date(currentDate.getFullYear(), currentDate.getMonth() + 1)
 			);
 		}
 	};

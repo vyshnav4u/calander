@@ -1,5 +1,5 @@
 import { TViewMode } from '../context/CalenderContext';
-import { useCalenderContext } from '../context/useCalenderContext';
+import { useCalenderContext } from '../context/CalanderContext/useCalenderContext';
 import './ViewSwitcher.css';
 
 const VIEW_MODE: TViewMode[] = ['day', 'week', 'month'];

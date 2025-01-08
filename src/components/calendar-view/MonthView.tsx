@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import { useCalenderContext } from '../../context/useCalenderContext';
+import { useCalenderContext } from '../../context/CalanderContext/useCalenderContext';
 import { firstDayOfMonth, getDaysInMonth } from '../Helper';
 import { DEFAULT_COLORS } from '../Calendar';
 

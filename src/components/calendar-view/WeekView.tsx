@@ -1,4 +1,5 @@
-import { useCalenderContext } from '../../context/useCalenderContext';
+import React from 'react';
+import { useCalenderContext } from '../../context/CalanderContext/useCalenderContext';
 import { CELL_HEIGHT, DEFAULT_COLORS } from '../Calendar';
 import { getUpcomingDates } from '../Helper';
 import MeetingInfo from '../MeetingInfo';
@@ -29,7 +30,7 @@ const WeekView = ({ columnCount }: { columnCount: number }) => {
 	return comingDays.map((day) => {
 		const nextHours = generateNextHours(day, 24);
 		return (
-			<div key={day.getTime()}>
+			<React.Fragment key={day.getTime()}>
 				{nextHours.map((hour) => {
 					const formattedHour = setMinuteToZero(hour);
 					const timeStamp = formattedHour.getTime();
@@ -41,6 +42,7 @@ const WeekView = ({ columnCount }: { columnCount: number }) => {
 							style={{
 								border: `1px solid ${DEFAULT_COLORS.borderColor}`,
 								height: CELL_HEIGHT,
+								width: '100%',
 							}}
 							data-date={`${hour}`}
 						>
@@ -53,7 +55,7 @@ const WeekView = ({ columnCount }: { columnCount: number }) => {
 						</div>
 					);
 				})}
-			</div>
+			</React.Fragment>
 		);
 	});
 };

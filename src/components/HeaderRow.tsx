@@ -1,5 +1,5 @@
 import { getUpcomingDates } from './Helper';
-import { useCalenderContext } from '../context/useCalenderContext';
+import { useCalenderContext } from '../context/CalanderContext/useCalenderContext';
 import { CELL_HEIGHT, DEFAULT_COLORS, FIRST_COLUMN_WIDTH } from './Calendar';
 import dayjs from 'dayjs';
 
@@ -11,7 +11,6 @@ const HeaderRow = (props: { currentDate: Date; columnCount: number }) => {
 
 	if (['week', 'day'].includes(viewMode)) {
 		const comingDays = getUpcomingDates(currentDate, columnCount);
-		console.log('comingDays', comingDays);
 
 		return (
 			<div
@@ -52,7 +51,10 @@ const HeaderRow = (props: { currentDate: Date; columnCount: number }) => {
 									textAlign: 'center',
 									padding: 4,
 									height: CELL_HEIGHT,
+									width: '100%',
 									border: `1px solid ${DEFAULT_COLORS.borderColor}`,
+									overflowX: 'hidden',
+									textOverflow: 'ellipsis',
 								}}
 							>
 								<p>{`${currentDay} ${currentMonth}`}</p>

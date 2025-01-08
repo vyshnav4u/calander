@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { TMeetingData } from '../components/CalendarWrap';
+import { TMeetingData } from '../../components/CalendarWrap';
 
 export type TViewMode = 'day' | 'week' | 'month';
 

@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import './Calendar.css';
 
-import { useCalenderContext } from '../context/useCalenderContext';
+import { useCalenderContext } from '../context/CalanderContext/useCalenderContext';
 import HeaderRow from './HeaderRow';
 import BodyWrapper from './BodyWrapper';
 import Header from './Header/Header';

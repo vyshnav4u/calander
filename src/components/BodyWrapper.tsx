@@ -1,4 +1,4 @@
-import { useCalenderContext } from '../context/useCalenderContext';
+import { useCalenderContext } from '../context/CalanderContext/useCalenderContext';
 import { getViewModeMeta } from './Helper';
 import { FIRST_COLUMN_WIDTH } from './Calendar';
 import TimeColumn from './TimeColumn';
