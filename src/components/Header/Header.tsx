@@ -6,6 +6,7 @@ import {
 import ViewSwitcher from '../ViewSwitcher';
 import { useCalenderContext } from '../../context/CalanderContext/useCalenderContext';
 import { getViewModeMeta } from '../Helper';
+import dayjs from 'dayjs';
 
 const MONTH_NAMES = [
 	'January',
@@ -25,7 +26,7 @@ const MONTH_NAMES = [
 const Header = () => {
 	const { state, updateCalender } = useCalenderContext();
 	const { currentDate, viewMode } = state;
-	const { isMonthView, isWeekView } = getViewModeMeta(viewMode);
+	const { isMonthView, isWeekView, isDayView } = getViewModeMeta(viewMode);
 	const dayOffset = isWeekView ? 7 : 1;
 
 	const handlePrevMonth = () => {
@@ -63,6 +64,20 @@ const Header = () => {
 			);
 		}
 	};
+
+	const getHeadTitle = () => {
+		if (isDayView) return dayjs(currentDate).format('DD ddd, MMMM YYYY');
+
+		if (isWeekView) {
+			const weekStart = dayjs(currentDate);
+			const weekEnd = weekStart.add(6, 'day');
+			return `${weekStart.format('DD MMM')} - ${weekEnd.format('DD MMM')}`;
+		}
+
+		return `${
+			MONTH_NAMES[currentDate.getMonth()]
+		} ${currentDate.getFullYear()}`;
+	};
 	return (
 		<div className="header">
 			<div
@@ -77,9 +92,7 @@ const Header = () => {
 				</button>
 			</div>
 			<div style={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
-				<h3>
-					{MONTH_NAMES[currentDate.getMonth()]} {currentDate.getFullYear()}
-				</h3>
+				<h3>{getHeadTitle()}</h3>
 			</div>
 			<ViewSwitcher />
 		</div>
