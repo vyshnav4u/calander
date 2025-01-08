@@ -61,6 +61,7 @@ const CalendarWrap = () => {
 	useEffect(() => {
 		setMeetingData(meetingDataJson as TMeetingData[]);
 	}, []);
+
 	return (
 		<CalenderProvider meetingData={meetingData}>
 			<Calendar />

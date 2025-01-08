@@ -18,7 +18,7 @@ const BodyWrapper = () => {
 					? '1fr'
 					: `${FIRST_COLUMN_WIDTH}px 1fr`,
 				maxHeight: 500,
-				overflowY: 'scroll',
+				overflowY: 'auto',
 				scrollbarWidth: 'none',
 			}}
 		>

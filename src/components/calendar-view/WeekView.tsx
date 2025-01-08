@@ -30,7 +30,7 @@ const WeekView = ({ columnCount }: { columnCount: number }) => {
 	return comingDays.map((day) => {
 		const nextHours = generateNextHours(day, 24);
 		return (
-			<React.Fragment key={day.getTime()}>
+			<div className="day-column-wrap" key={day.getTime()}>
 				{nextHours.map((hour) => {
 					const formattedHour = setMinuteToZero(hour);
 					const timeStamp = formattedHour.getTime();
@@ -55,7 +55,7 @@ const WeekView = ({ columnCount }: { columnCount: number }) => {
 						</div>
 					);
 				})}
-			</React.Fragment>
+			</div>
 		);
 	});
 };

@@ -1,4 +1,4 @@
-import { ReactNode, useMemo, useState } from 'react';
+import { ReactNode, useEffect, useMemo, useState } from 'react';
 import {
 	CalenderContext,
 	TCalenderContextKeys,
@@ -40,6 +40,10 @@ const CalenderProvider = (props: TCalenderProviderProps) => {
 		dateMeetingMap,
 		meetingIdMap,
 	});
+
+	useEffect(() => {
+		updateContext({ ...calenderState, dateMeetingMap, meetingIdMap });
+	}, [meetingData]);
 
 	const updateCalender = <T extends TCalenderContextKeys>(
 		key: T,
