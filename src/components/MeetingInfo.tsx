@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { TMeetingData } from '../App';
 import dayjs from 'dayjs';
+import { useCalenderContext } from '../context/CalanderContext/useCalenderContext';
 
 type TMeetingInfoProps = {
-	meetingIdMap: Record<string, TMeetingData>;
 	meetingIds: number[];
 };
 
@@ -12,7 +11,9 @@ const MODAL_WIDTH = 240;
 const OFFSET = 10;
 
 const MeetingInfo = (props: TMeetingInfoProps) => {
-	const { meetingIdMap, meetingIds } = props;
+	const { meetingIds } = props;
+	const { state } = useCalenderContext();
+	const { meetingIdMap } = state;
 	const previewMeetingId = meetingIds[0];
 	const meeting = meetingIdMap[previewMeetingId];
 	const start = dayjs(meeting.start);

@@ -9,6 +9,7 @@ export type TCalenderState = {
 	currentDate: Date;
 	meetingIdMap: Record<string, TMeetingData>;
 	dateMeetingMap: Record<string, number[]>;
+	dayBasedMeetingMap: Record<string, number[]>;
 };
 
 export type TCalenderContextKeys = keyof TCalenderState;

@@ -1,4 +1,4 @@
-import { TViewMode } from '../context/CalenderContext';
+import { TViewMode } from '../context/CalanderContext/CalenderContext';
 import { useCalenderContext } from '../context/CalanderContext/useCalenderContext';
 import './ViewSwitcher.css';
 
@@ -21,6 +21,7 @@ const ViewSwitcher = () => {
 		<ul className="view-switcher" style={{ display: 'flex', gap: 5 }}>
 			{VIEW_MODE.map((view) => (
 				<li
+					key={view}
 					className={viewMode === view ? 'active' : ''}
 					onClick={() => updateView(view)}
 				>

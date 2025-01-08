@@ -24,7 +24,7 @@ const setMinuteToZero = (time: Date) => {
 
 const WeekView = ({ columnCount }: { columnCount: number }) => {
 	const { state } = useCalenderContext();
-	const { currentDate, dateMeetingMap, meetingIdMap } = state;
+	const { currentDate, dateMeetingMap } = state;
 	const comingDays = getUpcomingDates(currentDate, columnCount);
 
 	return comingDays.map((day) => {
@@ -46,12 +46,7 @@ const WeekView = ({ columnCount }: { columnCount: number }) => {
 							}}
 							data-date={`${hour}`}
 						>
-							{meetingIds?.length && (
-								<MeetingInfo
-									meetingIds={meetingIds}
-									meetingIdMap={meetingIdMap}
-								/>
-							)}
+							{meetingIds?.length && <MeetingInfo meetingIds={meetingIds} />}
 						</div>
 					);
 				})}
